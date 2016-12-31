@@ -29,13 +29,11 @@ exports.Filter = function Filter() {
 exports.OverlapRemovalRefiner = require('./OverlapRemovalRefiner').Refiner;
 exports.ExtractTimezoneOffsetRefiner = require('./ExtractTimezoneOffsetRefiner').Refiner;
 exports.ExtractTimezoneAbbrRefiner = require('./ExtractTimezoneAbbrRefiner').Refiner;
-exports.ForwardDateRefiner = require('./ForwardDateRefiner').Refiner;
 exports.UnlikelyFormatFilter = require('./UnlikelyFormatFilter').Refiner;
 
 // EN refiners
 exports.ENMergeDateTimeRefiner = require('./EN/ENMergeDateTimeRefiner').Refiner;
 exports.ENMergeDateRangeRefiner = require('./EN/ENMergeDateRangeRefiner').Refiner;
-exports.ENPrioritizeSpecificDateRefiner = require('./EN/ENPrioritizeSpecificDateRefiner').Refiner;
 
 // JP refiners
 exports.JPMergeDateRangeRefiner = require('./JP/JPMergeDateRangeRefiner').Refiner;
@@ -43,3 +41,7 @@ exports.JPMergeDateRangeRefiner = require('./JP/JPMergeDateRangeRefiner').Refine
 // FR refiners
 exports.FRMergeDateRangeRefiner = require('./FR/FRMergeDateRangeRefiner').Refiner;
 exports.FRMergeDateTimeRefiner = require('./FR/FRMergeDateTimeRefiner').Refiner;
+
+// DE refiners
+exports.DEMergeDateRangeRefiner = require('./DE/DEMergeDateRangeRefiner').Refiner;
+exports.DEMergeDateTimeRefiner = require('./DE/DEMergeDateTimeRefiner').Refiner;

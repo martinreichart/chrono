@@ -41,25 +41,32 @@ function baseOption(strictMode) {
             new parser.ZHHantTimeExpressionParser(strictMode),
             new parser.ZHHantCasualDateParser(strictMode),
             new parser.ZHHantDeadlineFormatParser(strictMode),
+
+            // DE
+            new parser.DEDeadlineFormatParser(strictMode),
+            new parser.DEMonthNameLittleEndianParser(strictMode),
+            new parser.DEMonthNameParser(strictMode),
+            new parser.DESlashDateFormatParser(strictMode),
+            new parser.DETimeAgoFormatParser(strictMode),
+            new parser.DETimeExpressionParser(strictMode),
         ],
 
         refiners: [
             // Removing overlaping first
             new refiner.OverlapRemovalRefiner(),
-            new refiner.ForwardDateRefiner(),
 
             // ETC
             new refiner.ENMergeDateTimeRefiner(),
             new refiner.ENMergeDateRangeRefiner(),
-            new refiner.ENPrioritizeSpecificDateRefiner(),
             new refiner.FRMergeDateRangeRefiner(),
             new refiner.FRMergeDateTimeRefiner(),
             new refiner.JPMergeDateRangeRefiner(),
+            new refiner.DEMergeDateTimeRefiner(),
+            new refiner.DEMergeDateRangeRefiner(),
 
             // Extract additional info later
             new refiner.ExtractTimezoneOffsetRefiner(),
             new refiner.ExtractTimezoneAbbrRefiner(),
-
             new refiner.UnlikelyFormatFilter()
         ]
     }
@@ -78,9 +85,7 @@ exports.casualOption = function () {
 
     // EN
     options.parsers.unshift(new parser.ENCasualDateParser());
-    options.parsers.unshift(new parser.ENCasualTimeParser());
     options.parsers.unshift(new parser.ENWeekdayParser());
-    options.parsers.unshift(new parser.ENRelativeDateFormatParser());
 
     // JP
     options.parsers.unshift(new parser.JPCasualDateParser());
@@ -92,6 +97,10 @@ exports.casualOption = function () {
     // FR
     options.parsers.unshift(new parser.FRCasualDateParser());
     options.parsers.unshift(new parser.FRWeekdayParser());
+
+    // DE
+    options.parsers.unshift(new parser.DECasualDateParser());
+    options.parsers.unshift(new parser.DEWeekdayParser());
 
     return options;
 };
